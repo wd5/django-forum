@@ -1,20 +1,20 @@
 from django.contrib import admin
 
 from mptt.admin import MPTTModelAdmin
-from . models import Forum, Topic, Post
+from . models import ForumForum, ForumTopic, ForumPost
 
-class ForumAdmin( MPTTModelAdmin ):
+class ForumForumAdmin( admin.ModelAdmin ):
     list_display = ( 'title', )
     search_fields = ( 'title', )
 
-class TopicAdmin( admin.ModelAdmin ):
+class ForumTopicAdmin( admin.ModelAdmin ):
     list_display = ( 'title', )
     search_fields = ( 'title', )
 
-class PostAdmin( MPTTModelAdmin ):
+class ForumPostAdmin( MPTTModelAdmin ):
     list_display = ( 'title', )
     search_fields = ( 'title', )
 
-admin.site.register( Forum, ForumAdmin )
-admin.site.register( Topic, TopicAdmin )
-admin.site.register( Post, PostAdmin )
+admin.site.register( ForumForum, ForumForumAdmin )
+admin.site.register( ForumTopic, ForumTopicAdmin )
+admin.site.register( ForumPost, ForumPostAdmin )

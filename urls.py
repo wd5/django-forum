@@ -4,7 +4,7 @@ from django.conf.urls import patterns, include, url
 
 #(?P<year>\d{4})
 urlpatterns = patterns('forum',
-    (r'^$', 'views.index')
+    url( r'^$', 'views.home', name = 'forum-home' )
 )
 #urlpatterns = patterns('zokiguide.forum',
 #    (r'^$', 'views.welcome'),
