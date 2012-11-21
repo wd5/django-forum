@@ -3,11 +3,11 @@
 {% block content %}
     <div class="container">
         <div class="content">
+            <a href="{% url forum-add-post forum=forum.id %}">add topic</a>
             <table class="table table-striped">
-            {% for forum in forums %}
-                     
+            {% for forum in forums %}                     
                 <tr>
-                    <td >
+                    <td>
                         <h4><a href="{% url forum-forum id=forum.id slug=forum.slug %}">{{ forum.title }}</a></h4>
                         <p>{{ forum.content }}</p>
                     </td>
