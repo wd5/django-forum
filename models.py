@@ -16,7 +16,7 @@ if 'south' in settings.INSTALLED_APPS:
 
 
 class ForumForum( models.Model ):
-    parent = models.ForeignKey( 'self', blank = True, default = 0 )
+    parent = models.ForeignKey( 'self', blank = True, null = True, default = 0 )
     title = models.CharField( 
         max_length = 200,
         null = True,
@@ -36,23 +36,33 @@ class ForumForum( models.Model ):
         default = 'active',
         db_index = True
     )
-    topic_count = models.PositiveSmallIntegerField( default = 0 )
-    post_count = models.PositiveSmallIntegerField( default = 0 )
+    topic_count = models.PositiveSmallIntegerField( 
+        default = 0,
+        editable = False,
+    )
+    post_count = models.PositiveSmallIntegerField( 
+        default = 0,
+        editable = False,
+    )
     last_topic_edit = models.DateTimeField( 
         blank = True,
         null = True,
+        editable = False,
     )
     last_topic_id = models.PositiveIntegerField( 
         blank = True,
         null = True,
+        editable = False,
     )
     last_post_edit = models.DateTimeField( 
         blank = True,
         null = True,
+        editable = False,
     )
     last_post_id = models.PositiveIntegerField( 
         blank = True,
         null = True,
+        editable = False,
     )
 
     def __unicode__( self ):

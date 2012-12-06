@@ -39,8 +39,6 @@ def forum( request, id, slug ):
     except ForumForum.DoesNotExist:
         raise Http404
 
-    log( forum )
-
 
     if forum.slug() != slug:
         return redirect( 'forum-forum', id = id, slug = forum.slug(), permanent = True )
@@ -78,6 +76,9 @@ def topic( request ):
 #    return render( request, 'forum/topic.html', data )
 
 def add_post( request, forum ):
+
+
+
     data = {}
     return render( request, 'forum/edit-post.html', data )
 
